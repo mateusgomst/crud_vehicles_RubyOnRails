@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'home#index' #a mesma coisa, porem é o root toma conta da rout pra vc
 
-  resources :vehicles, only: %i[ index new create show ] #get     '/',     controller: 'vehicle',   action:'index'
+  resources :vehicles, only: %i[ index new create show edit update destroy] #get     '/',     controller: 'vehicle',   action:'index'
 
   #get     '/vehicles',     controller: 'vehicles',   action:'index' #pode ser uma pagina de bem vindo, pode ser um listar todos vehicles
 
