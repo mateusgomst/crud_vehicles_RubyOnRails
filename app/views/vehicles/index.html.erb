@@ -1,18 +1,37 @@
-<h2> Vehicle </h2>
+<h2 class="page-title">Vehicles</h2>
 
-<p>
-    <%= link_to 'New Vehicle', new_vehicle_path %>
-</p>
-<% @vehicles.each do |vehicle| %>
-        <%= link_to vehicle_path(vehicle) do%>
-            <%= vehicle.id %> |
-        <% end %>
-        <%= vehicle.brand %> |
-        <%= vehicle.model %> |
-        <%= vehicle.year %> |
-        <%= vehicle.plate %> |
-        <%= vehicle.kind %> | 
-        <%= link_to 'Erase', vehicle_path(vehicle), data: {'turbo-method': :delete} %> | 
-    </p>
-<% end %>
+<div class="actions">
+    <%= link_to 'New Vehicle', new_vehicle_path, class: 'btn-new' %>
+</div>
 
+<table class="vehicle-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Plate</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vehicles.each do |vehicle| %>
+      <tr>
+        <td>
+          <%= link_to vehicle.id, vehicle_path(vehicle), class: 'vehicle-link' %>
+        </td>
+        <td><%= vehicle.brand %></td>
+        <td><%= vehicle.model %></td>
+        <td><%= vehicle.year %></td>
+        <td><%= vehicle.plate %></td>
+        <td><%= vehicle.kind %></td>
+        <td>
+          <%= link_to 'Edit', edit_vehicle_path(vehicle), class: 'btn-edit' %>
+          <%= button_to 'Erase', vehicle_path(vehicle), method: :delete, class: 'btn-delete' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

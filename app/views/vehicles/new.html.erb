@@ -1,41 +1,45 @@
-<h2> New Vehicle </h2>
+<h2 class="form-title">New Vehicle</h2>
+
 <% if @vehicle.errors.any? %>
-    <% @vehicle.errors.full_messages.each do |message| %>
-        <p>
-            <%= message %>
-        </p>
-    <% end %>
+    <div class="error-messages">
+        <ul>
+            <% @vehicle.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
 <% end %>
 
+<%= form_with model: @vehicle, data: { turbo: false }, class: "vehicle-form" do |f| %>
+    <div class="form-group">
+        <%= f.label :brand, 'Brand', class: 'form-label' %>
+        <%= f.text_field :brand, class: 'form-control' %>
+    </div>
 
-<%= form_with model: @vehicle, data: { turbo: false } do |f|%>
-    <p>
-        <%= f.label :brand, 'Brand' %>
-        <%= f.text_field :brand %>
-    </p>
+    <div class="form-group">
+        <%= f.label :model, 'Model', class: 'form-label' %>
+        <%= f.text_field :model, class: 'form-control' %>
+    </div>
 
-    <p>
-        <%= f.label :model, 'model' %>
-        <%= f.text_field :model %>
-    </p>
+    <div class="form-group">
+        <%= f.label :year, 'Year', class: 'form-label' %>
+        <%= f.number_field :year, class: 'form-control' %>
+    </div>
 
-    <p>
-        <%= f.label :year, 'year' %>
-        <%= f.number_field :year %>
-    </p>
+    <div class="form-group">
+        <%= f.label :plate, 'Plate', class: 'form-label' %>
+        <%= f.text_field :plate, class: 'form-control' %>
+    </div>
 
-    <p>
-        <%= f.label :plate, 'plate' %>
-        <%= f.text_field :plate %>
-    </p>
+    <div class="form-group">
+        <%= f.label :kind, 'Kind', class: 'form-label' %>
+        <%= f.number_field :kind, class: 'form-control' %>
+    </div>
 
-    <p>
-        <%= f.label :kind, 'kind' %>
-        <%= f.number_field :kind %>
-    </p>
-
-    <p>
-        <%= f.submit %>
-    </p>
-    
+    <div class="form-actions">
+        <%= f.submit 'Create Vehicle', class: 'btn btn-primary' %>
+    </div>
 <% end %>
+
+<p><%= link_to 'Return', vehicles_path, class: 'btn btn-secondary' %></p>
+

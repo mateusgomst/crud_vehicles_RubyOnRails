@@ -1,13 +1,13 @@
-<h2> Vehiculo - id: <%= @vehicle.id %></h2>
+<h2 class="vehicle-title">Vehicle - ID: <%= @vehicle.id %></h2>
 
-<p>
-    <%= @vehicle.brand %> |
-    <%= @vehicle.model %> |
-    <%= @vehicle.year %> |
-    <%= @vehicle.plate %> |
-    <%= @vehicle.kind %> |
-    <%= link_to 'Edit', edit_vehicle_path %> | 
-    
-</p>
+<div class="vehicle-info">
+    <p><strong>Brand:</strong> <%= @vehicle.brand %></p>
+    <p><strong>Model:</strong> <%= @vehicle.model %></p>
+    <p><strong>Year:</strong> <%= @vehicle.year %></p>
+    <p><strong>Plate:</strong> <%= @vehicle.plate %></p>
+    <p><strong>Type:</strong> <%= @vehicle.kind %></p>
+</div>
 
-
+<div class="actions">
+    <%= button_to 'Return', vehicles_path, method: :get, class: "btn btn-return" %>
+</div>
