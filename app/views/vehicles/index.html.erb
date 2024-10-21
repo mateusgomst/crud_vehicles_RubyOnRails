@@ -13,6 +13,7 @@
       <th>Year</th>
       <th>Plate</th>
       <th>Type</th>
+      <th>Image</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -27,6 +28,13 @@
         <td><%= vehicle.year %></td>
         <td><%= vehicle.plate %></td>
         <td><%= vehicle.kind %></td>
+        <td>
+          <% if vehicle.photo_url.present? %>
+            <%= image_tag vehicle.photo_url, alt: "Foto do veículo", class: "vehicle-photo", width: 90, height: 67 %>
+          <% else %>
+            No image available
+          <% end %>
+        </td>
         <td>
           <%= link_to 'Edit', edit_vehicle_path(vehicle), class: 'btn-edit' %>
           <%= button_to 'Erase', vehicle_path(vehicle), method: :delete, class: 'btn-delete' %>

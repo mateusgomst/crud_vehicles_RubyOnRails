@@ -1,6 +1,10 @@
 class VehiclesController < ApplicationController
   def index
-    @vehicles = Vehicle.all.order(created_at: :desc)
+    if params[:search].present?
+      @vehicles = Vehicle.where('brand LIKE ?', "%#{params[:search]}%")
+    else
+      @vehicles = Vehicle.all
+    end
   end
 
   def new
@@ -56,7 +60,7 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params #strong parameters
-    params.require(:vehicle).permit(:brand, :model, :year, :plate, :kind)
+    params.require(:vehicle).permit(:brand, :model, :year, :plate, :kind, :photo_url)
   end
 
   def invalid_plate_format?(plate)
