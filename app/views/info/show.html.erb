@@ -1,0 +1,16 @@
+<h1 class="vehicle-info-title">Vehicle Information</h1>
+
+<table class="vehicle-info-table">
+  <tr>
+  <tr style="background-color: white;">
+    <td>Image</td>
+    <td><%= image_tag(@vehicle.photo_url, alt: 'Imagem do veículo', class: 'vehicle-image') %></td>
+  </tr>
+
+  <tr>
+    <td>Vehicle Information</td>
+    <td><%= @vehicle.info %></td>
+  </tr>
+</table>
+
+<p><%= link_to 'Return', vehicles_path, class: "btn btn-secondary" %></p>

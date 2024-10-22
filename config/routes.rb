@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  get "info/index"
   #pegar   para    vou mandar para controller home, e procurar uma action index
   #get     '/',     controller: 'home',   action:'index'  rota feita na unha
 
   root 'home#index' #a mesma coisa, porem é o root toma conta da rout pra vc
 
   resources :vehicles, only: %i[ index new create show edit update destroy] #get     '/',     controller: 'vehicle',   action:'index'
+
+  get 'info/:id', to: 'info#show', as: 'info'
 
   #get     '/vehicles',     controller: 'vehicles',   action:'index' #pode ser uma pagina de bem vindo, pode ser um listar todos vehicles
 

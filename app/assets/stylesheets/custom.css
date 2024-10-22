@@ -5,11 +5,20 @@ body {
 /* Estilos gerais para a página de veículos */
 .page-title {
     text-align: center;
-    font-size: 2rem;
-    color: #4a4a4a;
-    margin-bottom: 20px;
+    font-size: 2.5rem; /* Aumentei o tamanho da fonte para dar mais destaque */
+    color: #2c3e50; /* Um tom de azul mais escuro para um visual mais sofisticado */
+    margin-bottom: 30px; /* Aumentei o espaço abaixo do título */
     font-family: 'Arial', sans-serif;
+
+    letter-spacing: 1px; /* Aumenta o espaçamento entre as letras */
+    font-weight: bold; /* Deixa a fonte em negrito para maior ênfase */
+    border-bottom: 2px solid #28a745; /* Adiciona uma linha abaixo do título para separar visualmente */
+    padding-bottom: 10px; /* Espaço interno abaixo do título */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente para destacar o texto */
+    border-radius: 8px; /* Bordas arredondadas para um visual mais suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve para dar profundidade */
 }
+
 
 .actions {
     text-align: right;
@@ -219,4 +228,125 @@ body {
 
 .btn:hover {
     opacity: 0.9;
+}
+
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.search-field {
+    margin-right: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+.btn-new, .btn-search {
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px; /* Mais arredondado */
+    border: none;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.btn-new:hover, .btn-search:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Efeito hover com sombra */
+}
+
+.btn-info {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin: 10px; /* Aumentado para maior espaçamento */
+    transition: background-color 0.3s;
+}
+
+.btn-info {
+    background-color: #505050; /* Cor para editar */
+}
+
+.vehicle-info-title {
+    text-align: center; /* Centraliza o título */
+    font-size: 2rem; /* Tamanho do texto do título */
+    color: #333; /* Cor do texto */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.vehicle-info-table {
+    width: 80%; /* Largura da tabela */
+    margin: 0 auto; /* Centraliza a tabela */
+    border-collapse: collapse; /* Remove espaços entre as células */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve para a tabela */
+}
+
+.vehicle-info-table th,
+.vehicle-info-table td {
+    padding: 12px; /* Espaçamento interno */
+    border: 1px solid #ddd; /* Borda das células */
+    text-align: left; /* Alinhamento à esquerda */
+}
+
+.vehicle-info-table th {
+    background-color: #f8f9fa; /* Cor de fundo para o cabeçalho */
+    color: #333; /* Cor do texto do cabeçalho */
+}
+
+.vehicle-info-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Fundo alternado para linhas pares */
+}
+
+.vehicle-image {
+    max-width: 150px; /* Largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.vehicle-info-table {
+    width: 100%; /* Ajuste a largura conforme necessário */
+    border-collapse: collapse; /* Para remover espaços entre as células */
+}
+
+.vehicle-info-table th,
+.vehicle-info-table td {
+    border: 1px solid #ccc; /* Bordas nas células */
+    padding: 10px; /* Espaçamento interno */
+    text-align: left; /* Alinhamento do texto */
+}
+
+.vehicle-info-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Cor de fundo para linhas pares */
+}
+
+.vehicle-info-table tr:nth-child(odd) {
+    background-color: #fff; /* Cor de fundo para linhas ímpares */
+}
+
+.vehicle-image {
+    max-width: 20%; /* Ajusta a largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
 }

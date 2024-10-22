@@ -37,19 +37,24 @@ class VehiclesController < ApplicationController
 
   def update
     @vehicle = Vehicle.find(params[:id])
-
+    
     # Verifica o formato da placa antes de tentar atualizar
     if invalid_plate_format?(vehicle_params[:plate])
       flash[:error] = "Invalid plate format. Please enter in the format XXX-0000."
       render :edit and return
     end
-
+  
+    puts "Parâmetros recebidos: #{vehicle_params.inspect}" # Adicione esta linha para depuração
+  
     if @vehicle.update(vehicle_params)
+      puts "Atualização bem-sucedida: #{@vehicle.inspect}" # Log do veículo após atualização
       redirect_to vehicle_path(@vehicle)
     else
+      puts "Erro na atualização: #{@vehicle.errors.full_messages}" # Log dos erros
       render :edit
     end
   end
+  
 
   def destroy
     @vehicle = Vehicle.find(params[:id])
@@ -60,7 +65,7 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params #strong parameters
-    params.require(:vehicle).permit(:brand, :model, :year, :plate, :kind, :photo_url)
+    params.require(:vehicle).permit(:brand, :model, :year, :plate, :kind, :photo_url, :info)
   end
 
   def invalid_plate_format?(plate)

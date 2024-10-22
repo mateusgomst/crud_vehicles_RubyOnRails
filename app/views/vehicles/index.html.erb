@@ -1,7 +1,13 @@
 <h2 class="page-title">Vehicles</h2>
+<% content_for :title, "Vehicles" %>
 
 <div class="actions">
-    <%= link_to 'New Vehicle', new_vehicle_path, class: 'btn-new' %>
+  <%= form_with url: vehicles_path, method: :get, local: true, class: 'search-form' do |f| %>
+    <%= f.text_field :search, placeholder: 'Search by brand...', class: 'search-field' %>
+    <%= f.submit 'Search', class: 'btn-search' %>
+  <% end %>
+
+  <%= link_to 'New Vehicle', new_vehicle_path, class: 'btn-new' %>
 </div>
 
 <table class="vehicle-table">
@@ -38,6 +44,7 @@
         <td>
           <%= link_to 'Edit', edit_vehicle_path(vehicle), class: 'btn-edit' %>
           <%= button_to 'Erase', vehicle_path(vehicle), method: :delete, class: 'btn-delete' %>
+          <%= link_to 'More Info', info_path(vehicle.id), class: 'btn-info' %> <!-- Botão para Info -->
         </td>
       </tr>
     <% end %>
